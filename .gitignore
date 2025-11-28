@@ -1,0 +1,13 @@
+data/raw/
+data/processed/
+
+# Ignore Python cache
+__pycache__/
+
+# Ignore environment
+.env/
+.vscode/
+
+# Ignore ML artifacts
+mlruns/
+models/
