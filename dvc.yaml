@@ -1,0 +1,17 @@
+stages:
+  train_model:
+    cmd: python src/model/train.py --config src/config/params.yaml
+    deps:
+      - src/model/train.py
+      - src/data/dataset_loader.py
+      - src/utils/load_config.py
+      - src/config/params.yaml
+      - data/raw
+    params:
+      - model
+      - data
+      - training
+      - evaluation
+      - logging
+    outs:
+      - artifacts/

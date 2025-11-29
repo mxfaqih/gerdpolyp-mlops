@@ -1,0 +1,38 @@
+model:
+  name: convnext_tiny
+  pretrained: true
+  num_classes: 4
+
+data:
+  root: data/raw
+  original_dir: original
+  augmented_dir: augmented
+  use_augmented: true       # TRUE untuk baseline model skripsi
+  img_size: 224
+  normalize: true
+
+training:
+  batch_size: 64
+  epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  seed: 42
+  early_stopping: 10
+
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+  confusion_matrix: true
+
+logging:
+  tracking_uri: "./mlruns"
+  experiment_name: "baseline_v1"
+  run_name: "convnext_tiny_v1"
+
+paths:
+  history: "artifacts/history.csv"
+  best_model: "artifacts/model_best.pth"
+  confusion_matrix: "artifacts/confusion_matrix.png"

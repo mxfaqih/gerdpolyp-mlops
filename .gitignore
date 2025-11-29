@@ -1,13 +1,49 @@
-data/raw/
-data/processed/
-
-# Ignore Python cache
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
 
-# Ignore environment
-.env/
-.vscode/
+# DVC
+**/*.dvc
+.cache/
+.dvc/cache/
+.dvc/tmp/
 
-# Ignore ML artifacts
+# MLflow
 mlruns/
+
+# Artifacts
+artifacts/
 models/
+*.pth
+*.pt
+*.ckpt
+
+# Data
+data/raw/
+data/interim/
+data/processed/
+data/external/
+
+# Environment
+.env
+*.env
+.venv/
+venv/
+ENV/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build
+dist/
+build/
+
+# VSCode
+.vscode/

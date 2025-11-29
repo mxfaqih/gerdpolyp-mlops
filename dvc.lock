@@ -1,0 +1,63 @@
+schema: '2.0'
+stages:
+  train_model:
+    cmd: python src/model/train.py --config src/config/params.yaml
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: cc338c887d79ee80a7a3c66e5f1bc93f.dir
+      size: 2407734787
+      nfiles: 28042
+    - path: src/config/params.yaml
+      hash: md5
+      md5: 2707877ae4e3892257e3814e06e979fd
+      size: 736
+    - path: src/data/dataset_loader.py
+      hash: md5
+      md5: e5d1348461c9a392e12d535c8912e61c
+      size: 3821
+    - path: src/model/train.py
+      hash: md5
+      md5: ad85c5141727d3456e75f659cf944e60
+      size: 8922
+    - path: src/utils/load_config.py
+      hash: md5
+      md5: 770b1318c70f7e39bad5ecd1e1d4f55c
+      size: 844
+    params:
+      params.yaml:
+        data:
+          root: data/raw
+          original_dir: original
+          augmented_dir: augmented
+          use_augmented: true
+          img_size: 224
+          normalize: true
+        evaluation:
+          metrics:
+          - accuracy
+          - precision
+          - recall
+          - f1
+          confusion_matrix: true
+        logging:
+          tracking_uri: ./mlruns
+          experiment_name: baseline_v1
+          run_name: convnext_tiny_v1
+        model:
+          name: convnext_tiny
+          pretrained: true
+          num_classes: 4
+        training:
+          batch_size: 64
+          epochs: 20
+          learning_rate: 0.001
+          weight_decay: 0.0001
+          seed: 42
+          early_stopping: 10
+    outs:
+    - path: artifacts/
+      hash: md5
+      md5: c92f8b2ca29ed5e4725b8345efa822e2.dir
+      size: 111382763
+      nfiles: 3
