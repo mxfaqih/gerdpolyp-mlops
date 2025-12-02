@@ -14,9 +14,7 @@ The project features:
 - **Industrial-grade folder structure**
 - **Config-driven experimentation (params.yaml)**
 - **Production-ready inference API (FastAPI + Docker)**
-- **GPU-accelerated training (Colab-compatible)**
-
-This repository is designed for **research, production deployment, and portfolio demonstration**.
+- **GPU-accelerated training**
 
 ---
 
